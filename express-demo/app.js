@@ -1,5 +1,7 @@
 const express = require('express'); //express is a function
 const app = express(); // return value of the express function
+const Joi = require('joi');
+
 app.use(express.json()); // this lets us parse strings to json in posts...
 
 app.get('/', (req, res) => {
@@ -54,17 +56,18 @@ app.get('/api/courses/:id', (req, res) => {
 app.get('/api/courses', (req, res) => {
   res.send(courses);
 });
-
-// NOW for posting!
-
+//////////////////////
+// NOW for posting! //
+//////////////////////
 app.post('/api/courses', (req, res) => { // request and response
-  // First: we need to validate the input.
-  console.log(req.body);
-  if(true || !req.body.name || req.body.name.length < 3){
+  // First: we need to validate the input. This would be the logic, but we want
+  // to use a normal person way of INPUT VALIDATING
+  // if(!req.body.name || req.body.name.length < 3){
+  //   res.status(400).send('Bad request: Name of course was too small or did not exist');
+  //   console.log(req.body)
+  //   return;
+  // }
 
-    res.status(400).send('Bad request: Name of course was too small or did not exist');
-    return;
-  }
   else{
     let course_01 = {
       id: courses.length + 1,
