@@ -8,9 +8,9 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-// app.get('/api/courses', function(req, res){
-//   res.send([1, 2, 3]);
-// });
+app.get('/api/courses', function(req, res){
+  res.send([1, 2, 3]);
+});
 
 // Now we get a singular course: endpoint should be like /api/courses/1 for the first course
 // below, :id is a PARAMETER
