@@ -10,12 +10,7 @@ people = [
 app.use(express.json());
 
 app.post('/api/people', (req, res)=>{
-  const schema = {
-    name: Joi.string().min(3).required()
-  }
-  const result = Joi.validate(req.body, schema);
-
-  // res.send(result);
+  var result = validatePerson(req.body);
 
   if(result.error){
     res.status(400).send(result.error);
@@ -32,6 +27,14 @@ app.post('/api/people', (req, res)=>{
   res.send(new_hecker);
 
 });
+
+function validatePerson(person){
+  const schema = {
+    name: Joi.string().min(3).required();
+  }
+  const result = Joi.validate(person, schema);
+  return result;
+}
 
 app.get('/my_peeps', (req, res)=>{
   res.send(people);
