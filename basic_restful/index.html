@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Getting Some Stuff From a Server</title>
+
+    <!-- ANGULAR IMPORT -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <!-- ANGULAR ROUTING IMPORT -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <!-- BOOTSTRAP IMPORTS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class = "container" ng-app="angularApp" ng-controller="control">
+      <div class = "col-sm-12">
+        <div class = "jumbotron">
+          <h1>Yaah Yeet</h1>
+          <p>My Human Meat</p>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <h1>The List As It Stands</h1>
+        <div ng-repeat="movie in movies">
+          <h3>Name: {{movie.name}}</h3>
+          <h3>Director: {{movie.director}}</h3>
+          <h3>Release Date: {{movie.release}}</h3>
+          <br />
+        </div>
+      </div>
+
+      <div class = "col-sm-12">
+        <h1>Add new Movie:</h1>
+
+        <form>
+          Name of Movie: <input type="text" name="" value="" ng-model="newMovie.name"><br />
+          Director of Movie: <input type="text" name="" value="" ng-model="newMovie.director"><br />
+          Release of Movie: <input type="number" name="" value="" ng-model="newMovie.release"><br />
+          Date Added of Movie: <input type="text" name="" value="" ng-model="newMovie.added"><br />
+          <button type="button" name="button" ng-click="postMovie(newMovie)">Submit Form</button>
+        </form>
+        <p>{{postText}}</p>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <script src="angularApp.js"></script>
+    <script src="control.js"></script>
+  </body>
+</html>
